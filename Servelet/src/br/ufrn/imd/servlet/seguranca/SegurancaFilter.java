@@ -27,13 +27,7 @@ public class SegurancaFilter implements Filter {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see Filter#destroy()
-	 */
-	public void destroy() {
-		// TODO Auto-generated method stub
-	}
-
+	
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
@@ -47,17 +41,24 @@ public class SegurancaFilter implements Filter {
 		
 		Usuario usuario = (Usuario)req.getSession().getAttribute("usuario");
 		
-		if(usuario == null) {
-			res.
-		}
-		chain.doFilter(request, response);
+		if (usuario == null) 
+			res.sendRedirect("/AulaServlet2019/login.jsp");
+		else 
+			chain.doFilter(request, response);
 	}
 
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
+		
+	}
+	/**
+	 * @see Filter#destroy()
+	 */
+	public void destroy() {
 		// TODO Auto-generated method stub
 	}
+
 
 }
